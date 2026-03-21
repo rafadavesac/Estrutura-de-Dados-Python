@@ -6,6 +6,8 @@ import os
 
 lista_clientes = LSE()
 
+id_clientes = carregar_clientes(lista_clientes)
+
 historico_operacoes = Pilha()
 
 while True:
