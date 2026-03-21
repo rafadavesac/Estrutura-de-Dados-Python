@@ -1,30 +1,25 @@
 class Pilha:
-
     def __init__(self):
-        self._itens = [] # '_' deixa a variavel/dado privada -> para não utilizar o item privado fora da classe
+        self._itens = []
 
-    def push(self, item): #adiciona o item sempre no topo da pilha (último dado colocado na lista)
+    def push(self, item):
         self._itens.append(item)
 
-    def pop(self): #vai sempre remover o item do topo da pilha
+    def pop(self):
         if self.is_empty():
-            raise IndexError("Não é possível remover dados de uma pilha vazia")
-        
-        return self._itens.pop() #pop sempre exclui o ultimo dado que foi adicionado
-        #retorna o item que foi removido
+            return None
+        return self._itens.pop()
 
-    def peek(self): #retorna que item está no topo
+    def peek(self):
         if self.is_empty():
-            raise IndexError("Não é possível remover dados de uma pilha vazia")
-        
+            return None
         return self._itens[-1]
-        
-    def is_empty(self): #retorna um boolean
-        return len(self._itens) == 0 #se estiver vazia retorna true
 
+    def is_empty(self):
+        return len(self._itens) == 0
 
-    def __str__(self): # retorna o valor formatado da pilha
+    def __str__(self):
         return str(self._itens)
 
-    def __len__(self): #retorna a quantidade de itens da pilha
+    def __len__(self):
         return len(self._itens)
