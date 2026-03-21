@@ -5,8 +5,12 @@ from estruturas.Fila import Fila
 import os
 
 lista_clientes = LSE()
+lista_produtos = LSE()
+fila_vendas = Fila()
 
 id_clientes = carregar_clientes(lista_clientes)
+id_produtos = carregar_produtos(lista_produtos)
+id_vendas = carregar_vendas(fila_vendas, lista_clientes, lista_produtos)
 
 historico_operacoes = Pilha()
 
