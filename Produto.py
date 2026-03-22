@@ -1,7 +1,7 @@
 from estruturas.LSE import LSE
 import os
 
-# Para garantir que o python sempre use a pasta onde o script está salvo
+# Para garantir que o python sempre use a pasta certa
 DIRETORIO_ATUAL = os.path.dirname(os.path.abspath(__file__))
 PASTA_DADOS = os.path.join(DIRETORIO_ATUAL, "dados")
 
@@ -62,11 +62,15 @@ def salvar_produtos(lista_lse):
         os.makedirs(PASTA_DADOS)
 
     caminho = os.path.join(PASTA_DADOS, "produtos.txt")
+
     with open(caminho, "w", encoding="utf-8") as f:
+
+        f.write("id; produto; quantidade; preço\n")
+
         atual = lista_lse.head
         while atual:
             p = atual.valor
-            f.write(f"{p.id};{p.nome};{p.quantia};{p.preco}\n")
+            f.write(f"{p.id}; {p.nome}; {p.quantia}; {p.preco}\n")
             atual = atual.proximo
 
 def carregar_produtos(lista_lse):
@@ -77,6 +81,9 @@ def carregar_produtos(lista_lse):
     
     maior_id = -1
     with open(caminho, "r", encoding="utf-8") as f:
+
+        f.readline()
+
         for linha in f:
             if linha.strip():
                 partes = linha.strip().split(";")

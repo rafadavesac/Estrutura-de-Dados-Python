@@ -48,10 +48,13 @@ def salvar_clientes(lista_lse):
     caminho = os.path.join(PASTA_DADOS, "clientes.txt")
     
     with open(caminho, "w", encoding="utf-8") as f:
+
+        f.write("id; cliente\n")
+
         atual = lista_lse.head
         while atual:
             c = atual.valor
-            f.write(f"{c.id};{c.nome}\n")
+            f.write(f"{c.id}; {c.nome}\n")
             atual = atual.proximo
 
 def carregar_clientes(lista_lse):
@@ -59,7 +62,11 @@ def carregar_clientes(lista_lse):
     if not os.path.exists(caminho):
         return 0
     maior_id = -1
+
     with open(caminho, "r", encoding="utf-8") as f:
+
+        f.readline() #lê o cabeçalho(id;nome) e move o leitor para o início da segunda linha
+
         for linha in f:
             if linha.strip():
                 partes = linha.strip().split(";")

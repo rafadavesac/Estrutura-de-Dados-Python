@@ -36,7 +36,7 @@ class Venda:
 
     def calcular_total_vendas(fila_vendas):
         total = sum(v.valor_total for v in fila_vendas._items)
-        print(f"\n💰 Valor total de todas as vendas realizadas: R${total:.2f}")
+        print(f"\nValor total de todas as vendas realizadas: R${total:.2f}")
         return total
 
 # FUNÇÃO AUXILIAR DE BUSCA (Necessária para carregar os objetos do arquivo)
@@ -48,6 +48,8 @@ def buscar_por_id(lista_lse, id_procurado):
         atual = atual.proximo
     return None
 
+
+
 # PERSISTÊNCIA NA PASTA 'DADOS'
 def salvar_vendas(fila_vendas):
     if not os.path.exists(PASTA_DADOS):
@@ -55,9 +57,11 @@ def salvar_vendas(fila_vendas):
         
     caminho = os.path.join(PASTA_DADOS, "vendas.txt")
     with open(caminho, "w", encoding="utf-8") as f:
+
+        f.write("id_venda; id_cliente; id_produto; quantidade; valor_total\n")
+
         for v in fila_vendas._items:
-            # Salvamos as referências (IDs) para reconstruir o objeto depois
-            f.write(f"{v.id};{v.cliente.id};{v.produto.id};{v.quantidade}\n")
+            f.write(f"{v.id}; {v.cliente.id}; {v.produto.id}; {v.quantidade}; {v.valor_total}\n")
 
 def carregar_vendas(fila_vendas, lista_clientes, lista_produtos):
     caminho = os.path.join("dados", "vendas.txt")
@@ -66,6 +70,9 @@ def carregar_vendas(fila_vendas, lista_clientes, lista_produtos):
     
     maior_id = -1
     with open(caminho, "r", encoding="utf-8") as f:
+
+        f.readline()
+
         for linha in f:
             if linha.strip():
                 partes = linha.strip().split(";")
@@ -74,7 +81,6 @@ def carregar_vendas(fila_vendas, lista_clientes, lista_produtos):
                 id_produto = int(partes[2])
                 quantidade = int(partes[3])
                 
-                # Reconstrução da relação entre objetos
                 cliente_obj = buscar_por_id(lista_clientes, id_cliente)
                 produto_obj = buscar_por_id(lista_produtos, id_produto)
                 

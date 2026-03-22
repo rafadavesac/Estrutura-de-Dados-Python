@@ -16,7 +16,8 @@ id_produtos = carregar_produtos(lista_produtos)
 id_vendas = carregar_vendas(fila_vendas, lista_clientes, lista_produtos)
 
 while True:
-    print("\n===== MENU ESTOQUE =====")
+    
+    print("\n----- MENU ESTOQUE -----")
     print("1 - Cadastrar cliente")
     print("2 - Listar clientes")
     print("3 - Cadastrar produto")
@@ -29,21 +30,23 @@ while True:
     print("10 - Exibir valor total de vendas")
     print("11 - Exibir clientes e valores gastos")
     print("12 - Sair")
-    print("========================")
+    print("-------------------------\n")
     
     try:
         opcao = input("Selecione uma opção: ")
 
         if opcao == '1':
-            nome = input("Nome do cliente: ")
+            nome = input("Insira o nome do cliente: ")
             novo = Cliente(id_clientes)
             novo.cadastrar_cliente(nome, lista_clientes)
             historico_operacoes.push(("CADASTRO_CLIENTE", novo))
             salvar_clientes(lista_clientes)
             id_clientes += 1
-            print(f"Cliente cadastrado com sucesso!\nNome: {novo.nome} | ID: {novo.id}")
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"\nCliente cadastrado com sucesso!\nNome: {novo.nome} | ID: {novo.id}")
 
         elif opcao == '2':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Cliente(0).listar_clientes(lista_clientes)
 
         elif opcao == '3':
@@ -55,16 +58,22 @@ while True:
             historico_operacoes.push(("CADASTRO_PRODUTO", novo_p))
             salvar_produtos(lista_produtos)
             id_produtos += 1
-            print(f"Produto cadastrado com sucesso!\nProduto: {novo_p.nome} | ID: {novo_p.id}")
+
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+            print(f"\nProduto cadastrado com sucesso!\nProduto: {novo_p.nome} | ID: {novo_p.id}")
 
         elif opcao == '4':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Produto(0).listar_produtos(lista_produtos)
 
         elif opcao == '5':
-            termo = input("Digite o ID ou Nome do produto: ")
+            os.system('cls' if os.name == 'nt' else 'clear')
+            termo = input("Digite o ID ou Nome do produto: \n")
             Produto(0).pesquisar_produto(lista_produtos, termo)
 
         elif opcao == '6':
+            
             id_c = int(input("ID do Cliente: "))
             cli = buscar_por_id(lista_clientes, id_c)
             if not cli:
@@ -82,13 +91,17 @@ while True:
                 id_vendas += 1
                 salvar_vendas(fila_vendas)
                 salvar_produtos(lista_produtos)
-                print(
-                    f"Venda realizada! Total: R${nova_venda.valor_total:.2f}")
+
+                os.system('cls' if os.name == 'nt' else 'clear')
+
+                print(f"Venda realizada! Total: R${nova_venda.valor_total:.2f}\n")
 
         elif opcao == '7':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Venda.visualizar_fila(fila_vendas)
 
         elif opcao == '8':
+            os.system('cls' if os.name == 'nt' else 'clear')
             if historico_operacoes.is_empty():
                 print("⚠️ Não há operações para desfazer.")
             else:
@@ -109,12 +122,15 @@ while True:
                 print(f"Operação de {tipo} desfeita!")
 
         elif opcao == '9':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Produto(0).calcular_valor_estoque(lista_produtos)
 
         elif opcao == '10':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Venda.calcular_total_vendas(fila_vendas)
 
         elif opcao == '11':
+            os.system('cls' if os.name == 'nt' else 'clear')
             Cliente(0).exibir_gastos_totais(lista_clientes, fila_vendas)
 
         elif opcao == '12':
