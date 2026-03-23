@@ -1,7 +1,9 @@
 # Sistema de Gerenciamento de Estoque e Vendas 
 
 **Disciplina:** Organização e Abstração na Programação 
-**Integrantes:** Cristina Bisol Orso e Rafaela Laimer Davesac
+**Integrantes:** 
+- Cristina Bisol Orso | 1139000
+- Rafaela Laimer Davesac | 1138820
 
 ---
 
