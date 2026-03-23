@@ -1,7 +1,6 @@
-# Sistema de Gerenciamento de Estoque e Vendas (Terminal)
+# Sistema de Gerenciamento de Estoque e Vendas 
 
 **Disciplina:** Estrutura de Dados com Python  
-**Título do Trabalho:** Mini Sistema de Estoque com Persistência e Estruturas de Dados Clássicas  
 **Integrantes:** Cristina Bisol Orso e Rafaela Laimer Davesac
 
 ---
