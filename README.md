@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Estoque e Vendas 
 
-**Disciplina:** Estrutura de Dados com Python  
+**Disciplina:** Organização e Abstração na Programação 
 **Integrantes:** Cristina Bisol Orso e Rafaela Laimer Davesac
 
 ---
