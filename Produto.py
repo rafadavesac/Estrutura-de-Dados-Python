@@ -28,7 +28,7 @@ class Produto:
     def listar_produtos(self, lista_produtos):
         atual = lista_produtos.head
         if not atual:
-            print("📦 Nenhum produto cadastrado no estoque.")
+            print("Nenhum produto cadastrado no estoque.")
             return
         
         while atual != None:
