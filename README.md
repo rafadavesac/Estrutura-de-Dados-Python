@@ -6,14 +6,14 @@
 
 ---
 
-## 📝 Descrição do Sistema
+## Descrição do Sistema
 Este sistema foi desenvolvido para gerenciar o fluxo de mercadorias e vendas de um pequeno estabelecimento. Executado inteiramente via terminal, o software permite o cadastro de clientes e produtos, a realização de vendas com baixa automática de estoque, consulta de patrimônio e um histórico de operações com a funcionalidade de desfazer.
 
 O foco principal do projeto é a aplicação prática de conceitos de Programação Orientada a Objetos e o uso de Estruturas de Dados, garantindo que os dados sejam preservados entre diferentes execuções por meio de um sistema de persistência automática.
 
 ---
 
-## 🏗️ Estruturas de Dados Utilizadas
+## Estruturas de Dados Utilizadas
 
 Para atender aos requisitos da disciplina, não foram utilizadas listas nativas do Python para o armazenamento principal. Em vez disso, implementamos:
 
@@ -23,7 +23,7 @@ Para atender aos requisitos da disciplina, não foram utilizadas listas nativas 
 
 ---
 
-## 💾 Persistência Automática em Arquivos
+## Persistência Automática em Arquivos
 
 O sistema conta com um mecanismo de "Banco de Dados" baseado em arquivos de texto plano (`.txt`):
 
@@ -33,7 +33,7 @@ O sistema conta com um mecanismo de "Banco de Dados" baseado em arquivos de text
 
 ---
 
-## 🛠️ Instruções de Execução
+## Instruções de Execução
 
 ### Pré-requisitos
 * Python 3.x instalado.
